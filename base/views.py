@@ -12,7 +12,7 @@ from .models import Advocate, Company
 
 @api_view(['GET'])
 def endpoints(request):
-  data=['/advocates', 'advocates/:username', 'companies', "compaines/:name" ]
+  data=['/advocates', 'advocates/:username', 'companies', "compaines/:name", "token" ]
   return Response(data)
 
 
@@ -20,8 +20,6 @@ def endpoints(request):
 @permission_classes([IsAuthenticated])
 def advocate_list(request):
   if request.method == 'GET': 
-    
-    
     query= request.GET.get('query')
     
     if query == None:
