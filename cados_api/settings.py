@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from django.conf import settings
+import dj_database_url
 
 
 
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'base',
 
     'rest_framework',
-    'rest_framework_simplejwt',
+     'rest_framework_simplejwt',
 ]
 
 REST_FRAMEWORK = {
@@ -129,10 +130,16 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+      
+        # default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # SQLite as default
+        # conn_max_age=600
+        default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a/cadoslearn_api'
+        conn_max_age=600
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        
+    )
 }
 
 
