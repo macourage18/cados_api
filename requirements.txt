@@ -3,3 +3,4 @@ django
 djangorestframework==3.14.0
 rest_framework_simplejwt==0.0.2
 dj_database_url==2.1.0
+psycopg2_binary==2.9.9
