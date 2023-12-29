@@ -1,4 +1,4 @@
 gunicorn==21.2.0
 django
 djangorestframework==3.14.0
-rest_framework_simplejwt==0.0.2
+djangorestframework-simplejwt==0.0.2
