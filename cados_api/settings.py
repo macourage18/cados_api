@@ -135,7 +135,7 @@ DATABASES = {
       
         # default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # SQLite as default
         # conn_max_age=600
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://postgres:postgres@localhost:5432/cados_api',
         conn_max_age=600
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
