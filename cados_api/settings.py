@@ -130,17 +130,21 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgresql://postgres:postgres@localhost:5432/cados_api',
+#         conn_max_age=600
+#     )
+# }
 DATABASES = {
-    'default': dj_database_url.config(
-      
-        # default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # SQLite as default
-        # conn_max_age=600
-        default='postgresql://postgres:postgres@localhost:5432/cados_api',
-        conn_max_age=600
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cadoslearn_api',
+        'USER': 'postgres',
+        'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
