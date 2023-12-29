@@ -30,7 +30,9 @@ SECRET_KEY = 'django-insecure-j9-4$_4-f$xo@j=7^wjpwpcj1hr&qkfz6r(y#^!p)hwp2eczp_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'cadoslearn-api.onrender.com',
+]
 
 
 # Application definition
