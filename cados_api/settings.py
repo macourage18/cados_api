@@ -143,7 +143,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cadoslearn_api',
-        'USER': 'postgres',
+        'USER': 'cadoslearn_api_user',
         'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
         'HOST': 'localhost',
         'PORT': '5432',
