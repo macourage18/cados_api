@@ -15,7 +15,7 @@ from datetime import timedelta
 from django.conf import settings
 import dj_database_url
 import os
-
+from whitenoise import WhiteNoise 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +47,7 @@ if not DEBUG:
 ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # Application definition
 
@@ -139,6 +140,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cados_api.wsgi.application'
+application = WhiteNoise(application)
 
 
 # Database
