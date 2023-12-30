@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9 || ^3.10 || ^3.11"
 gunicorn = "^21.2.0"
+whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 
 
 [build-system]

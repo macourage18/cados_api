@@ -40,6 +40,9 @@ DEBUG = [
 # ALLOWED_HOSTS = [
 #   'cadoslearn-api.onrender.com',
 # ]
+if not DEBUG:
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+   STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -114,6 +117,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cados_api.urls'
@@ -154,7 +158,7 @@ DATABASES = {
 #         'NAME': 'cadosLearn_api',
 #         'USER': 'postgres',
 #         'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
-#         'HOST': 'dpg-cm792m6n7f5s73darrn0-a',
+#         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
 # }
@@ -194,7 +198,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
