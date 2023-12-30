@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'base',
 
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
 
 REST_FRAMEWORK = {
@@ -131,24 +132,24 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='postgresql://postgres:postgres@localhost:5432/cados_api',
-#         conn_max_age=600
-#     )
-# }
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cadosLearn_api',
-        'USER': 'cadoslearn_api_user',
-        'PASSWORD': 'cadoslearn_api_user',
-        'HOST': 'dpg-cm792m6n7f5s73darrn0-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a.oregon-postgres.render.com/cadoslearn_api',
+        conn_max_age=600
+    )
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'cadosLearn_api',
+#         'USER': 'cadoslearn_api_user',
+#         'PASSWORD': 'cadoslearn_api_user',
+#         'HOST': 'dpg-cm792m6n7f5s73darrn0-a',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
