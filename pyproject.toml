@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cados_api"
+version = "1.0.0"
+description = "api"
+authors = ["macourage18 <macourage17@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9 || ^3.10 || ^3.11"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
