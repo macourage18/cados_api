@@ -1,18 +1,18 @@
 databases:
-  - name: cados
-    databaseName: cados
-    user: cados
+  - name: cadosLearn_api
+    databaseName: cadosLearn_api
+    user: cadoslearn_api_user
 
 services:
   - type: web
-    name: cados
+    name: cadosLearn_api
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn mysite.wsgi:application"
+    startCommand: "gunicorn cados_api.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: cados
+          name: cadosLearn_api
           property: connectionString
       - key: SECRET_KEY
         generateValue: true

@@ -142,7 +142,7 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/cados_api',
+        default='postgresql://postgres:postgres@localhost:5432/cadosLearn_api',
         conn_max_age=600
     )
 }
