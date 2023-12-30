@@ -142,10 +142,10 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cadoslearn_api',
+        'NAME': 'cadosLearn_api',
         'USER': 'cadoslearn_api_user',
-        'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
-        'HOST': 'localhost',
+        'PASSWORD': 'cadoslearn_api_user',
+        'HOST': 'dpg-cm792m6n7f5s73darrn0-a',
         'PORT': '5432',
     }
 }
