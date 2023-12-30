@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 from django.conf import settings
 import dj_database_url
+import os
 
 
 
@@ -25,16 +26,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j9-4$_4-f$xo@j=7^wjpwpcj1hr&qkfz6r(y#^!p)hwp2eczp_'
+SECRET_KEY = [
+  'django-insecure-j9-4$_4-f$xo@j=7^wjpwpcj1hr&qkfz6r(y#^!p)hwp2eczp_',
+  os.environ.get('SECRET_KEY', default='your secret key')
+  ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = [
+  True,
+  'RENDER' not in os.environ
+  ]
 
 # ALLOWED_HOSTS = [
 #   'cadoslearn-api.onrender.com',
 # ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -49,7 +58,6 @@ INSTALLED_APPS = [
     'base',
 
     'rest_framework',
-    'rest_framework_simplejwt',
 ]
 
 REST_FRAMEWORK = {
@@ -134,7 +142,7 @@ WSGI_APPLICATION = 'cados_api.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a.oregon-postgres.render.com/cadoslearn_api',
+        default='postgresql://postgres:postgres@localhost:5432/cados_api',
         conn_max_age=600
     )
 }
