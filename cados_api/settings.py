@@ -159,7 +159,7 @@ application = WhiteNoise(application)
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a.oregon-postgres.render.com/cadoslearn_api',
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
