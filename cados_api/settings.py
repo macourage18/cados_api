@@ -17,6 +17,7 @@ import dj_database_url
 import os
 from whitenoise import WhiteNoise 
 from django.core.wsgi import get_wsgi_application
+import json
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,9 +39,7 @@ DEBUG = [
   'RENDER' not in os.environ
   ]
 
-# ALLOWED_HOSTS = [
-#   'cadoslearn-api.onrender.com',
-# ]
+
 if not DEBUG:
    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -70,10 +69,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 
 SIMPLE_JWT = {
@@ -125,7 +120,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 
 ]
 
@@ -149,32 +143,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cados_api.wsgi.application'
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cados_api.settings')
 application = get_wsgi_application()
 application = WhiteNoise(application)
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#    'default': dj_database_url.config(
-#       default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a.oregon-postgres.render.com/cadoslearn_api'
-#    )
-   
-}
+print(os.environ.get('DATABASE_URL'))
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'cadoslearn_api',
-#        'USER': 'cadoslearn_api_user',
-#        'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
-#        'HOST': 'cm792m6n7f5s73darrn0-a.oregon-postgres.render.com',
-#        'PORT': '5432',
-#     }
-# }
 
 
 # Password validation
@@ -221,3 +200,7 @@ STATIC_ROOT = BASE_DIR / "static"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+print(json.dumps(DATABASES, indent=2))
