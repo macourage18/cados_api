@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     'base',
 
     'rest_framework',
-    "debug_toolbar",
 ]
 
 REST_FRAMEWORK = {
@@ -159,17 +158,21 @@ application = WhiteNoise(application)
 
 DATABASES = {
    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#    'default': dj_database_url.config(
+#       default='postgres://cadoslearn_api_user:gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj@dpg-cm792m6n7f5s73darrn0-a.oregon-postgres.render.com/cadoslearn_api'
+#    )
+   
 }
 
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'cados_api',
-#         'USER': 'postgres',
-#         'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'cadoslearn_api',
+#        'USER': 'cadoslearn_api_user',
+#        'PASSWORD': 'gDpQQwhJSuNDTdqo0kbMKGD5h41Qe9Kj',
+#        'HOST': 'cm792m6n7f5s73darrn0-a.oregon-postgres.render.com',
+#        'PORT': '5432',
 #     }
 # }
 
