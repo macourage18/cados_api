@@ -158,9 +158,7 @@ application = WhiteNoise(application)
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        default=os.environ.get('DATABASE_URL')
-    )
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
