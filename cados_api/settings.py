@@ -20,6 +20,10 @@ from django.core.wsgi import get_wsgi_application
 import json
 
 
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -148,15 +152,15 @@ application = get_wsgi_application()
 application = WhiteNoise(application)
 
 
+SILENCED_SYSTEM_CHECKS = ["database.E001"]
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 print(os.environ.get('DATABASE_URL'))
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 
 
-
-
+# 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
